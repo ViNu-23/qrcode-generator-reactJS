@@ -18,8 +18,9 @@ function Main() {
   const [urlInput, setUrlInput] = useState("");
   const [isGenerated, setIsGenerated] = useState(false);
   const [input, setInput] = useState(true);
+  const [headingText, setHeadingText] = useState("QR Code Generator");
 
-  function getQrCode() {
+  function getQrCode(e) {
     const canvas = document.createElement("canvas");
 
     QRCode.toCanvas(
@@ -36,11 +37,12 @@ function Main() {
           <img
             src={qrCodeDataUrl}
             alt="QR Code"
-            style={{ display: "block", margin: "auto", width: "70%" }}
+            style={{ display: "block", margin: "auto", width: "100%" }}
           />
         );
         setInput(false);
         setIsGenerated(true);
+        setHeadingText(`URL: ${urlInput}`)
       }
     );
   }
@@ -49,7 +51,7 @@ function Main() {
     const root = createRoot(document.getElementById("qr-code-container"));
     root.unmount();
     setInput(true);
-
+    setHeadingText('QR Code Generator')
     setUrlInput("");
     setIsGenerated(false);
   }
@@ -59,10 +61,10 @@ function Main() {
       <div className="container">
         <ChakraProvider>
           <Center h="100vh">
-            <Card align="center" boxShadow="2xl" bg="white" m={10} p={10}>
+            <Card align="center" boxShadow="2xl" bg="white" m={10} p={10} minWidth={350}>
               <CardHeader>
-                <Heading color="#2B6CB0" alignItems={"center"}>
-                  QR Code Generator
+                <Heading color="#2B6CB0" alignItems={"center"} size='md'>
+                 {headingText}
                 </Heading>
               </CardHeader>
               <Container>
