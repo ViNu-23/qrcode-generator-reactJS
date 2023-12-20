@@ -14,6 +14,13 @@ import {
 } from "@chakra-ui/react";
 
 function Main() {
+  function inputValue(){
+console.log('hello');
+  }
+  function getQrCode(){
+    console.log('hello');
+
+  }
   return (
     <>
       <div className="container">
@@ -24,10 +31,10 @@ function Main() {
                 <Heading color="#2B6CB0">QR Code Generator</Heading>
               </CardHeader>
               <Container>
-                <Input variant="outline" placeholder="Type your url" mt={10} />
+                <Input variant="outline" placeholder="Type your url" mt={10} onClick={inputValue}/>
               </Container>
               <CardFooter>
-                <Button colorScheme="blue" mt={8} size="lg">
+                <Button colorScheme="blue" mt={8} size="lg" onClick={getQrCode}>
                   Generate
                 </Button>
               </CardFooter>
