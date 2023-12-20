@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import "./index.css";
-import ReactDOM from "react-dom/client";
+import { createRoot } from 'react-dom/client';
 import {
   Card,
   CardHeader,
@@ -12,13 +11,28 @@ import {
   ChakraProvider,
   Center,
 } from "@chakra-ui/react";
-import QRCode from "qrcode.react";
+import QRCode from "qrcode";
 
 function Main() {
-  const[urlInput,setUrlInput]=useState('');
-  function getQrCode(){
+  const [urlInput, setUrlInput] = useState("");
 
+  function getQrCode() {
+    // Create a canvas element to render the QR code
+    const canvas = document.createElement("canvas");
+
+    // Generate QR code based on the input URL
+    QRCode.toCanvas(canvas, urlInput, { errorCorrectionLevel: "H" }, function (
+      error
+    ) {
+      if (error) console.error(error);
+
+      // Display the QR code
+      createRoot(document.getElementById("qr-code-container")).render(
+        <img src={canvas.toDataURL()} alt="QR Code" />
+      );
+    });
   }
+
   return (
     <>
       <div className="container">
@@ -29,12 +43,31 @@ function Main() {
                 <Heading color="#2B6CB0">QR Code Generator</Heading>
               </CardHeader>
               <Container>
-                <Input variant="outline" placeholder="https://example.com" mt={10} onChange={(e) => setUrlInput(e.target.value)} value={urlInput} />
+                <Input
+                  variant="outline"
+                  placeholder="https://example.com"
+                  mt={10}
+                  onChange={(e) => setUrlInput(e.target.value)}
+                  value={urlInput}
+                />
+              <div id="qr-code-container" ></div>
+
               </Container>
               <CardFooter>
-                {urlInput&& <Button colorScheme="blue" mt={8} size="lg" onClick={getQrCode}>
-                  Generate
-                </Button>}
+                {urlInput && (
+                  
+                  
+                    <Button
+                      colorScheme="blue"
+                      mt={8}
+                      size="lg"
+                      onClick={getQrCode}
+                    >
+                      Generate
+                    </Button>
+                    
+                  
+                )}
               </CardFooter>
             </Card>
           </Center>
@@ -44,5 +77,4 @@ function Main() {
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Main />);
+createRoot(document.getElementById("root")).render(<Main />);
