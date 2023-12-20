@@ -18,8 +18,6 @@ function Main() {
   const [urlInput, setUrlInput] = useState("");
   const [isGenerated, setIsGenerated] = useState(false);
   const [input, setInput] = useState(true);
-  const [headingText, setHeadingText] = useState("QR Code Generator");
-
   function getQrCode(e) {
     const canvas = document.createElement("canvas");
 
@@ -42,7 +40,6 @@ function Main() {
         );
         setInput(false);
         setIsGenerated(true);
-        setHeadingText(`URL: ${urlInput}`)
       }
     );
   }
@@ -51,7 +48,6 @@ function Main() {
     const root = createRoot(document.getElementById("qr-code-container"));
     root.unmount();
     setInput(true);
-    setHeadingText('QR Code Generator')
     setUrlInput("");
     setIsGenerated(false);
   }
@@ -63,8 +59,8 @@ function Main() {
           <Center h="100vh">
             <Card align="center" boxShadow="2xl" bg="white" m={10} p={10} minWidth={350}>
               <CardHeader>
-                <Heading color="#2B6CB0" alignItems={"center"} size='md'>
-                 {headingText}
+                <Heading color="#2B6CB0" textAlign={"center"} size='lg'>
+                  QR Code Generator
                 </Heading>
               </CardHeader>
               <Container>
