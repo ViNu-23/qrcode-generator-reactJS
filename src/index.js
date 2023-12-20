@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.css";
 import ReactDOM from "react-dom/client";
 import {
@@ -12,13 +12,11 @@ import {
   ChakraProvider,
   Center,
 } from "@chakra-ui/react";
+import QRCode from "qrcode.react";
 
 function Main() {
-  function inputValue(){
-console.log('hello');
-  }
+  const[urlInput,setUrlInput]=useState('');
   function getQrCode(){
-    console.log('hello');
 
   }
   return (
@@ -31,12 +29,12 @@ console.log('hello');
                 <Heading color="#2B6CB0">QR Code Generator</Heading>
               </CardHeader>
               <Container>
-                <Input variant="outline" placeholder="Type your url" mt={10} onClick={inputValue}/>
+                <Input variant="outline" placeholder="https://example.com" mt={10} onChange={(e) => setUrlInput(e.target.value)} value={urlInput} />
               </Container>
               <CardFooter>
-                <Button colorScheme="blue" mt={8} size="lg" onClick={getQrCode}>
+                {urlInput&& <Button colorScheme="blue" mt={8} size="lg" onClick={getQrCode}>
                   Generate
-                </Button>
+                </Button>}
               </CardFooter>
             </Card>
           </Center>
