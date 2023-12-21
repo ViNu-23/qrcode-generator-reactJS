@@ -1,5 +1,6 @@
 # QR Code Generate App
 ## This code represents a React component (Main) that serves as a QR Code generator.
+
 <img width="364" alt="Screenshot 2023-12-21 223154" src="https://github.com/ViNu-23/qrcode-generator-reactJS/assets/59360964/b70a4bd1-4099-444f-81d5-5c1e46c017d8">
 <img width="299" alt="Screenshot 2023-12-21 223307" src="https://github.com/ViNu-23/qrcode-generator-reactJS/assets/59360964/9c8d1f8c-a7cb-4776-a8df-d2c83c0dba73">
 
