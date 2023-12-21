@@ -28,4 +28,4 @@ The Main component is rendered using createRoot from react-dom/client. This is a
 In summary, this component provides a simple UI for generating and clearing QR Codes, with dynamic changes to the title based on the state of QR Code generation. The QR Code is displayed using the QRCode library, and the component uses Chakra UI for styling and UI components.
 
 ## Demo
-https://qr-code-generator-reactjs-chakraui.netlify.app/
+https://qr-code-generator-reactjs-chakraui.netlify.app/ 
