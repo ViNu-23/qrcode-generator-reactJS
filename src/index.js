@@ -30,9 +30,7 @@ function Main() {
       { errorCorrectionLevel: "H" },
       function (error) {
         if (error) console.error(error);
-
         const qrCodeDataUrl = canvas.toDataURL();
-
         const root = createRoot(document.getElementById("qr-code-container"));
         root.render(
           <img
@@ -46,7 +44,6 @@ function Main() {
       }
     );
   }
-
   function clearQrCode() {
     const root = createRoot(document.getElementById("qr-code-container"));
     root.unmount();
