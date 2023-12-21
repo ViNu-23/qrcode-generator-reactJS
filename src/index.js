@@ -15,10 +15,13 @@ import {
 import QRCode from "qrcode";
 
 function Main() {
+  const [title, setTitle] = useState("QR Code Generator");
+
   const [urlInput, setUrlInput] = useState("");
   const [isGenerated, setIsGenerated] = useState(false);
   const [input, setInput] = useState(true);
-  function getQrCode(e) {
+  function getQrCode() {
+    setTitle("Scan Here");
     const canvas = document.createElement("canvas");
 
     QRCode.toCanvas(
@@ -57,10 +60,17 @@ function Main() {
       <div className="container">
         <ChakraProvider>
           <Center h="100vh">
-            <Card align="center" boxShadow="2xl" bg="white" m={10} p={10} minWidth={350}>
+            <Card
+              align="center"
+              boxShadow="2xl"
+              bg="white"
+              m={10}
+              p={10}
+              minWidth={350}
+            >
               <CardHeader>
-                <Heading color="#2B6CB0" textAlign={"center"} size='lg'>
-                  QR Code Generator
+                <Heading color="#2B6CB0" textAlign={"center"} size="lg">
+                  {title}
                 </Heading>
               </CardHeader>
               <Container>
