@@ -1,70 +1,26 @@
-# Getting Started with Create React App
+# QR Code Generate App
+## This code represents a React component (Main) that serves as a QR Code generator. Let's break down its purpose and functionality:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## State Variables:
 
-## Available Scripts
+1.title: Manages the title of the QR Code generator. Initially set to "QR Code Generator" and changes to "Scan Here" when a QR Code is generated.</br>
+2.urlInput: Manages the input URL for generating the QR Code.</br>
+3.isGenerated: Tracks whether a QR Code has been generated or not.</br>
+4.input: Manages the visibility of the input field.</br>
+## Functions:
 
-In the project directory, you can run:
+1.getQrCode: Invoked when the "Generate" button is clicked. It uses the QRCode library to generate a QR Code based on the input URL. The generated QR Code is then displayed, and the input field is hidden.</br>
+2.clearQrCode: Invoked when the "Clear" button (represented by the Chakra UI CloseButton) is clicked. It removes the previously generated QR Code, resets the input field, and sets the component state to its initial state.
+## Chakra UI Components:
 
-### `npm start`
+1.Card: Represents a container for the QR Code generator with styling provided by Chakra UI.</br>
+2.CardHeader: Displays the title of the QR Code generator.</br>
+3.Container: Wraps the input field and the container for the generated QR Code.</br>
+4.Input: Allows users to input the URL for generating the QR Code.</br>
+5.CardFooter: Contains the "Generate" and "Clear" buttons.</br>
+6.CloseButton: A Chakra UI component used for clearing the generated QR Code.
+## Rendering:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The Main component is rendered using createRoot from react-dom/client. This is a part of the transition to React 18's concurrent rendering model.</br>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+In summary, this component provides a simple UI for generating and clearing QR Codes, with dynamic changes to the title based on the state of QR Code generation. The QR Code is displayed using the QRCode library, and the component uses Chakra UI for styling and UI components.
