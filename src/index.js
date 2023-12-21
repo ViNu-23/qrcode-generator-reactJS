@@ -16,14 +16,13 @@ import QRCode from "qrcode";
 
 function Main() {
   const [title, setTitle] = useState("QR Code Generator");
-
   const [urlInput, setUrlInput] = useState("");
   const [isGenerated, setIsGenerated] = useState(false);
   const [input, setInput] = useState(true);
+
   function getQrCode() {
     setTitle("Scan Here");
     const canvas = document.createElement("canvas");
-
     QRCode.toCanvas(
       canvas,
       urlInput,
@@ -44,6 +43,7 @@ function Main() {
       }
     );
   }
+  
   function clearQrCode() {
     const root = createRoot(document.getElementById("qr-code-container"));
     root.unmount();
